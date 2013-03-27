@@ -22,6 +22,7 @@ function guessLetter(letter) {
 			guesses[i] = letter;
 			//set letter correct to true
 			letterCorrect = true;
+			//increase prize
 			prize += reward;
 		}
 	}
