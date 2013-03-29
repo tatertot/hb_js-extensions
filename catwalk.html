@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Cat Walk</title>
+ </head>
+ <body>
+  
+  <img style="position:absolute;" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+  
+  <script type="text/javascript">
+  //create variable to store cat img
+  catImg = document.getElementsByTagName('img')[0];
+  catImg.style.position = 'absolute';
+  catImg.style.left = '0px';
+   catImg.style.right = '0px';
+  var oldLeft = 0;
+  //create function to move cat 10 pixels using left property
+  function catWalk(){
+  	oldLeft = parseInt(catImg.style.left);
+  	var newLeft = oldLeft + 10;
+  	catImg.style.left = newLeft + 'px';
+  	if (newLeft > 800){
+		window.clearInterval(catWalkAnim);
+		catWalkAnimLeft();
+  	}
+  }
+
+  function catWalkLeft(){
+  	oldRight = parseInt(catImg.style.right);
+  	var newRight = oldRight + 10;
+  	catImg.style.right = newRight + 'px';
+  	if (newRight > 800){
+		window.clearInterval(catWalkAnimLeft);
+		catWalkAnimLeft();
+  	}
+  }
+  catWalkAnim = window.setInterval(catWalk,50);
+  catWalkAnimLeft = window.setInterval(catWalkLeft,50);
+  
+  catWalkAnim();
+  
+ /*
+ var img = document.getElementsByTagName('img')[0];
+img.style.left = '0px';
+function catWalk() {
+  img.style.left = (parseInt(img.style.left) + 10) + 'px';
+}
+window.setInterval(catWalk, 50);
+
+*/
+  </script>
+ </body>
+</html>
